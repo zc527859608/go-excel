@@ -197,10 +197,18 @@ func praseTagValue(v string) *fieldConfig {
 
 func getTagParam(v string) (key, value string) {
 	// expect v = `field_name` or `column(fieldName)` or `default(0)` and so on ...
+	if strings.Contains(v,""){
+
+	}
 	start := strings.Index(v, "(")
 	end := strings.Index(v, ")")
 	if start > 0 && end == len(v)-1 {
-		return v[:start], v[start+1 : end]
+		key=v[:start]
+		value=v[start+1 : end]
+		if key==columnTag||key==encodingTag||key==splitTag||key==defaultTag||key==nilTag||key==reqTag{
+			return
+		}
+		return columnTag, v
 	}
 	// log.Printf("Use column as default?[%s]\n", v)
 	return columnTag, v
