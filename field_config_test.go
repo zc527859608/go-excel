@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	convert "github.com/szyhf/go-convert"
-	excel "github.com/szyhf/go-excel"
+	excel "github.com/zc527859608/go-excel"
 )
 
 type StandardFieldConfig Standard
